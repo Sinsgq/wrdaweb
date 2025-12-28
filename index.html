@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="assets/js/antiedit.js"></script>
+        <title>→ 🌹</title>
+        <script src="assets/js/me.js"></script>
+        <link rel="stylesheet" href="assets/styles.css">
+    </head>
+    <style>
+        html {
+            cursor: url('assets/cursor.png'), pointer;
+        }
+    </style>
+    <body>
+        <div id="welcome-screen">
+            <div id="sins-wrap">
+                <div class="sins-scroll"><span class="sins-inner"><span class="sins-text">🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;</span><span class="sins-text">🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;</span></span></div>
+                <div class="sins-scroll"><span class="sins-inner"><span class="sins-text">🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;</span><span class="sins-text">🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;</span></span></div>
+                <div class="sins-scroll"><span class="sins-inner"><span class="sins-text">🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;</span><span class="sins-text">🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;</span></span></div>
+                <div class="sins-scroll"><span class="sins-inner"><span class="sins-text">🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;</span><span class="sins-text">🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;</span></span></div>
+                <div class="sins-scroll"><span class="sins-inner"><span class="sins-text">🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;</span><span class="sins-text">🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;</span></span></div>
+                <div class="sins-scroll"><span class="sins-inner"><span class="sins-text">🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;</span><span class="sins-text">🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;</span></span></div>
+                <div class="sins-scroll"><span class="sins-inner"><span class="sins-text">🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;</span><span class="sins-text">🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;</span></span></div>
+                <div class="sins-scroll"><span class="sins-inner"><span class="sins-text">🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;</span><span class="sins-text">🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;</span></span></div>
+                <div class="sins-scroll"><span class="sins-inner"><span class="sins-text">🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;</span><span class="sins-text">🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;</span></span></div>
+                <div class="sins-scroll"><span class="sins-inner"><span class="sins-text">🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;</span><span class="sins-text">🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;🌹&nbsp;</span></span></div>
+            </div>
+            <div id="enter-text">Click to Enter</div>
+        </div>
+        <div id="main-content" style="display: none;">
+            <video id="background-video" autoplay loop disablepictureinpicture muted>
+                <source src="assets/edit.mp4" type="video/mp4"> Your browser does not support the video tag.
+            </video>
+            <!-- Video controller (top-left) -->
+            <div id="video-controller" aria-label="Video controller">
+                <button id="prev-video" title="Previous">◀</button>
+                <button id="next-video" title="Next">▶</button>
+                <select id="video-select" aria-label="Select video">
+                </select>
+                <label for="volume-slider" id="volume-label">Vol</label>
+                <input id="volume-slider" type="range" min="0" max="1" step="0.01" value="0.5">
+            </div>
+            <div id="container">
+                <div id="imageContainer">
+                    <img id="image" src="assets/WRM.png"></img>
+                    <div id="overlayText">
+                        <div id="autoScrollText">
+                            <a href="#"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="column-mask"></div>
+            <div id="scrolling-text-container">
+                <div id="scrolling-text">Playing: uh go fuck yourself</div>
+            </div>
+        </div>
+        <script src="assets/js/scrolling.js"></script>
+        <script src="assets/js/video.js"></script>
+        <script src="assets/js/replacing.js"></script>
+        <script src="assets/js/webhoodk.js"></script>
+    </body>
+</html>

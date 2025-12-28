@@ -1,0 +1,357 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: black;
+    color: white;
+    font-family: 'Courier New';
+    
+}
+
+#main-content {
+    display: none;
+}
+
+#welcome-screen {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#enter-text {
+    margin-top: 20px;
+}
+
+
+#background-video {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    object-fit: cover;
+    position: fixed;
+    opacity: 0.5;
+}
+
+#socials-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#socials-text {
+    font-size: 72px;
+
+}
+
+#column-mask {
+    position: fixed;
+    bottom: 5%;
+    left: 50%;
+    width: 14.5%;
+    height: 2vh;
+    background-color: transparent;
+    transform: translateX(-50%);
+    z-index: 2;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+}
+
+#scrolling-text-container {
+    white-space: nowrap;
+    overflow: hidden;
+    position: fixed;
+    bottom: 5%;
+    left: 43%;
+    right: 43%;
+    z-index: 1;
+}
+
+#scrolling-text {
+    color: white;
+    position: relative;
+    animation: scrollText 5s infinite linear;
+}
+
+/* Welcome screen small repeated scrolling 'sins.rip' */
+#welcome-screen {
+    position: relative;
+    background: black;
+    height: 100vh;
+    overflow: hidden;
+    /* control font-size for both enter text and background scrollers */
+    --enter-font-size: 2rem; /* matches previous size; change if you want different */
+}
+
+#sins-wrap {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    align-items: flex-start;
+    pointer-events: none; /* clicks go through to enter */
+    z-index: 1;
+}
+
+.sins-scroll {
+    width: 100%;
+    overflow: hidden; /* clip the inner moving text */
+}
+
+.sins-inner {
+    display: inline-block;
+    font-family: inherit; /* preserve site font */
+    /* use the same size as the enter text */
+    font-size: var(--enter-font-size);
+    font-weight: 700;
+    color: rgba(255, 0, 0, 0.12);
+    white-space: nowrap;
+    /* animate the inner duplicated text from 0 -> -50% for seamless loop */
+    animation: sinsScroll 3s linear infinite; /* faster */
+    will-change: transform;
+}
+
+/* stagger start times so multiple small scrolls are offset */
+#sins-wrap .sins-scroll:nth-child(1) .sins-inner { animation-delay: 0s; }
+#sins-wrap .sins-scroll:nth-child(2) .sins-inner { animation-delay: 1s; }
+#sins-wrap .sins-scroll:nth-child(3) .sins-inner { animation-delay: 2s; }
+#sins-wrap .sins-scroll:nth-child(4) .sins-inner { animation-delay: 3s; }
+#sins-wrap .sins-scroll:nth-child(5) .sins-inner { animation-delay: 4s; }
+
+@keyframes sinsScroll {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+}
+
+.sins-text { display:inline-block; }
+
+/* left/right fade overlays for smooth in/out */
+#sins-wrap::before,
+#sins-wrap::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 10vw;
+    pointer-events: none;
+    z-index: 3; /* above scrollers but below enter text */
+}
+#sins-wrap::before {
+    left: 0;
+    background: linear-gradient(to right, black 0%, rgba(0,0,0,0) 100%);
+}
+#sins-wrap::after {
+    right: 0;
+    background: linear-gradient(to left, black 0%, rgba(0,0,0,0) 100%);
+}
+
+/* ensure enter text is above overlays */
+#enter-text { z-index: 4; }
+
+/* Make the Click to Enter semi-transparent and on top */
+#enter-text {
+    position: relative;
+    z-index: 2;
+    opacity: 0.5; /* half transparent */
+    color: white;
+    /* preserve original site font and size */
+    font-family: inherit;
+    font-size: inherit;
+    user-select: none;
+}
+
+
+#typing-container {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-30%, -50%);
+}
+
+
+#imageContainer {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#image {
+  transform: translate(-50%, -50%) scale(0.5); /* Scale down the image by 70% and center it */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto; /* Maintain the image's aspect ratio */
+  height: auto;
+}
+
+#overlayText {
+  position: absolute;
+  top: 65%; /* Adjust the top position as needed */
+  left: 47.8%; /* Adjust the left position as needed */
+  color: rgb(255, 255, 255); /* Text color, adjust as needed */
+  font-size: 18px; /* Text size, adjust as needed */
+  font-weight: bold; /* Text weight, adjust as needed */
+}
+
+
+@keyframes scrollText {
+    0% {
+        transform: translateX(200%);
+    }
+    100% {
+        transform: translateX(-200%);
+    }
+}
+
+
+/* Video controller (top-left) */
+#video-controller {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 4;
+    /* transparent background so it blends with the video */
+    background: transparent;
+    padding: 6px 8px;
+    border-radius: 6px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    color: white;
+    font-size: 12px;
+}
+
+/* Mobile-specific styles */
+@media screen and (max-width: 768px) {
+    #video-controller {
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0,0,0,0.3);
+        padding: 8px;
+    }
+    
+    #video-controller button {
+        padding: 8px 12px;  /* Larger touch targets */
+        font-size: 16px;
+    }
+    
+    #video-controller select {
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    #video-controller input[type="range"] {
+        width: 100px;  /* Slightly wider on mobile */
+    }
+    
+    #video-controller input[type="range"]::-webkit-slider-thumb {
+        width: 20px;  /* Larger touch target */
+        height: 20px;
+    }
+    
+    #video-controller input[type="range"]::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+    }
+
+    #enter-text {
+        font-size: 24px;
+        padding: 15px;
+    }
+    
+    .sins-inner {
+        font-size: 1.5rem;  /* Smaller on mobile */
+    }
+    
+    #image {
+        transform: translate(-50%, -50%) scale(0.4);  /* Slightly smaller on mobile */
+    }
+
+    #scrolling-text-container {
+        left: 10%;
+        right: 10%;
+    }
+
+    #column-mask {
+        width: 30%;  /* Wider column mask on mobile */
+    }
+}
+
+#video-controller button {
+    /* keep buttons slightly visible against the video */
+    background: rgba(255,255,255,0.06);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 4px 6px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#video-controller select {
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 4px;
+    border-radius: 4px;
+}
+
+/* Volume slider - red track and thumb */
+#video-controller input[type="range"] {
+    width: 90px;
+    background: transparent;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 14px;
+}
+
+/* WebKit */
+#video-controller input[type="range"]::-webkit-slider-runnable-track {
+    height: 6px;
+    background: rgba(255, 50, 50, 0.9);
+    border-radius: 3px;
+}
+#video-controller input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    margin-top: -4px;
+    background: #ff3333;
+    border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.4);
+}
+
+/* Firefox */
+#video-controller input[type="range"]::-moz-range-track {
+    height: 6px;
+    background: rgba(255, 50, 50, 0.9);
+    border-radius: 3px;
+}
+#video-controller input[type="range"]::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    background: #ff3333;
+    border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.4);
+}
+
+/* IE */
+#video-controller input[type="range"]::-ms-track {
+    height: 6px;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+#video-controller input[type="range"]::-ms-fill-lower,
+#video-controller input[type="range"]::-ms-fill-upper {
+    background: rgba(255, 50, 50, 0.9);
+    border-radius: 3px;
+}
+
